@@ -10,23 +10,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 console.log(users);
 
-const middlewr = async (req, res, next) => {
-  // const reqOptions = {
-  //   method: 'get',
-  //   //headers: { authorization: `Bearer ${accessToken}` },
-  // }
-  // const weatherResponse = await axios(reqOptions);
-  // req.weather = weatherResponse.data;
-  // console.log(req.headers['host']);
-  // res.setHeader('User', 'Mikhailo');  
-  next();
-}
 
-app.get('/', middlewr, (req, res) => {
+app.get('/', (req, res) => {
   res.end('Hello');
 })
 
-app.post('/registration', middlewr, (req, res) => {
+app.post('/registration', (req, res) => {
     console.log(req.body);
   })
 
